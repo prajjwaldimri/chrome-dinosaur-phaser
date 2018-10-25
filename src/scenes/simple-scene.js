@@ -43,7 +43,7 @@ module.exports = class SimpleScene extends Phaser.Scene {
 
     this.anims.create({
       key: 'ducking',
-      frames: this.anims.generateFrameNumbers('playerDucking', { start: 0, end: 1 }),
+      frames: this.anims.generateFrameNumbers('playerDucking', { start: 0, end: 2 }),
       frameRate: 5,
       repeat: -1,
     });
@@ -67,8 +67,10 @@ module.exports = class SimpleScene extends Phaser.Scene {
     if (this.cursors.up.isDown && player.body.touching.down) {
       player.anims.play('default');
       player.setVelocityY(-330);
-    } else if (this.cursors.down.isDown) {
-      player.anims.play('ducking');
+    } else if (this.cursors.down.isDown && player.body.touching.down) {
+      if (player.anims.currentAnim.key !== 'ducking') {
+        player.anims.play('ducking');
+      }
       player.setSize(118, 90, false);
     } else if (player.anims.currentAnim.key !== 'running') {
       // Play default running animation always
