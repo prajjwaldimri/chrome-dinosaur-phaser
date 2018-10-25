@@ -5,7 +5,7 @@ import SimpleScene from './scenes/simple-scene';
 
 const gameConfig = {
   width: window.innerWidth,
-  height: window.innerHeight,
+  height: 600,
   physics: {
     default: 'arcade',
     arcade: {

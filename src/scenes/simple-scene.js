@@ -28,8 +28,9 @@ module.exports = class SimpleScene extends Phaser.Scene {
     player.setCollideWorldBounds(true);
 
     // Ground
-    ground = this.physics.add.staticGroup();
-    ground.create(0, 420, 'ground').refreshBody();
+    ground = this.physics.add.sprite(0, 500, 'ground');
+    ground.setCollideWorldBounds(true);
+    // ground.create(0, 420, 'ground').refreshBody();
 
     this.physics.add.collider(player, ground);
 
@@ -59,6 +60,15 @@ module.exports = class SimpleScene extends Phaser.Scene {
     });
 
     player.anims.play('running');
+
+    this.anims.create({
+      key: 'groundMoving',
+      frames: this.anims.generateFrameNumbers('ground', { start: 0, end: 2 }),
+      frameRate: 1,
+      repeat: -1,
+    });
+
+    ground.anims.play('groundMoving');
   }
 
   update() {
