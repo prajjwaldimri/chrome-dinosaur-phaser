@@ -1,5 +1,6 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
@@ -45,6 +46,15 @@ module.exports = {
     new webpack.DefinePlugin({
       "typeof CANVAS_RENDERER": JSON.stringify(true),
       "typeof WEBGL_RENDERER": JSON.stringify(true)
+    }),
+    new HtmlWebpackPlugin({
+      title: "Output Management"
     })
-  ]
+  ],
+
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
+  }
 };
