@@ -66,7 +66,7 @@ module.exports = class SimpleScene extends Phaser.Scene {
     if (this.cursors.up.isDown && player.body.touching.down) {
       player.anims.play('default');
       player.setVelocityY(-730);
-    } else if (this.cursors.down.isDown && player.body.touching.down) {
+    } else if (this.cursors.down.isDown) {
       if (player.anims.currentAnim.key !== 'ducking') {
         player.anims.play('ducking');
       }
