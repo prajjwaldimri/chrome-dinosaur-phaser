@@ -1,3 +1,3 @@
 const messageEl = document.createElement("div");
-messageEl.textContent = "JS!";
+messageEl.textContent = "Wassup!";
 document.body.appendChild(messageEl);
