@@ -75,6 +75,7 @@ module.exports = class SimpleScene extends Phaser.Scene {
     } else if (player.anims.currentAnim.key !== 'running') {
       // Play default running animation always
       player.anims.play('running');
+      player.setSize(88, 90, false);
     }
   }
 };
