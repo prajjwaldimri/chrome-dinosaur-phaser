@@ -1,11 +1,11 @@
-/* global Phaser */
+/* global Phaser window */
 import 'phaser';
 
 import SimpleScene from './scenes/simple-scene';
 
 const gameConfig = {
-  width: 680,
-  height: 450,
+  width: window.innerWidth,
+  height: window.innerHeight,
   physics: {
     default: 'arcade',
     arcade: {
