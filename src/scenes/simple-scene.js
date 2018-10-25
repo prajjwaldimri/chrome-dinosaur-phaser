@@ -16,7 +16,7 @@ module.exports = class SimpleScene extends Phaser.Scene {
     });
     this.load.spritesheet('ground', 'assets/ground.png', {
       frameWidth: 1202,
-      frameHeight: 24,
+      frameHeight: 32,
     });
   }
 
@@ -29,10 +29,7 @@ module.exports = class SimpleScene extends Phaser.Scene {
 
     // Ground
     ground = this.physics.add.staticGroup();
-    ground
-      .create(0, 420, 'ground')
-      .setSize(32, 24)
-      .refreshBody();
+    ground.create(0, 420, 'ground').refreshBody();
 
     this.physics.add.collider(player, ground);
 
