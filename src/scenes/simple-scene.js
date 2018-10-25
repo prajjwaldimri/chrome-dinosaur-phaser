@@ -29,7 +29,10 @@ module.exports = class SimpleScene extends Phaser.Scene {
 
     // Ground
     ground = this.physics.add.staticGroup();
-    ground.create(0, 420, 'ground').refreshBody();
+    ground
+      .create(0, 420, 'ground')
+      .setSize(32, 24)
+      .refreshBody();
 
     this.physics.add.collider(player, ground);
 
@@ -59,14 +62,13 @@ module.exports = class SimpleScene extends Phaser.Scene {
     });
 
     player.anims.play('running');
-    console.log(player.anims);
   }
 
   update() {
     // Player Controls
     if (this.cursors.up.isDown && player.body.touching.down) {
       player.anims.play('default');
-      player.setVelocityY(-330);
+      player.setVelocityY(-730);
     } else if (this.cursors.down.isDown && player.body.touching.down) {
       if (player.anims.currentAnim.key !== 'ducking') {
         player.anims.play('ducking');
