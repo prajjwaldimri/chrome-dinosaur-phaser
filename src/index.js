@@ -1,11 +1,14 @@
-import "phaser";
+/* global Phaser */
+import 'phaser';
 
-import { SimpleScene } from "./scenes/simple-scene.js";
+import { debug } from 'util';
+import SimpleScene from './scenes/simple-scene';
 
 const gameConfig = {
   width: 680,
   height: 400,
-  scene: SimpleScene
+  scene: SimpleScene,
 };
 
-new Phaser.Game(gameConfig);
+const game = new Phaser.Game(gameConfig);
+debug(game);
